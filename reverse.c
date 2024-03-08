@@ -4,22 +4,6 @@
 #include <sys/stat.h>
 
 
-void ensureNewlineAtEnd(const char *filename) {
-    FILE *file = fopen(filename, "a");  // Abre el archivo en modo "append"
-    if (file == NULL) {
-        perror("fopen");
-        exit(1);
-    }
-
-    fseek(file, -1, SEEK_END);  // Mueve el puntero al último carácter del archivo
-
-    // Verifica si el último carácter es un salto de línea
-    if (ftell(file) > 0 && fgetc(file) != '\n') {
-        fputc('\n', file);  // Agrega un salto de línea al final del archivo
-    }
-
-    fclose(file);
-}
 
 int areSameFiles(const char *file1, const char *file2) {
     struct stat input_stat, output_stat;
@@ -52,8 +36,6 @@ int main(int argc, char *argv[]) {
 
     // Verificar si se proporcionaron archivos de entrada y salida
     if (argc > 1) {
-        
-        //ensureNewlineAtEnd(argv[1]);
         // Intentar abrir el archivo de entrada
         inputFile = fopen(argv[1], "r");
 
