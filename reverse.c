@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     // Verificar si se proporcionaron archivos de entrada y salida
     if (argc > 1) {
         
-        ensureNewlineAtEnd(argv[1]);
+        //ensureNewlineAtEnd(argv[1]);
         // Intentar abrir el archivo de entrada
         inputFile = fopen(argv[1], "r");
 
