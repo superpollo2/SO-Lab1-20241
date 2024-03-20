@@ -4,7 +4,7 @@
 #include <sys/stat.h>
 
 
-
+//función para comparar la similitud de dos archivos
 int areSameFiles(const char *file1, const char *file2) {
     struct stat input_stat, output_stat;
 
@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Archivos de entrada y salida
+    // Archivos de entrada y salida estandar
     FILE *inputFile = stdin;
     FILE *outputFile = stdout;
 
@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
     // Leer y almacenar las líneas del archivo de entrada
     char **lines = NULL;
     size_t lineCount = 0;
-    size_t maxLines = 10; // Puedes ajustar según sea necesario
+    size_t maxLines = 15; // Puedes ajustar según sea necesario
 
     lines = malloc(maxLines * sizeof(char *));
     if (lines == NULL) {
